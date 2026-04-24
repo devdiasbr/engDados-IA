@@ -63,11 +63,11 @@ const SLIDES = [
     kicker: "ENGENHARIA DE DADOS + IA",
     title: "SDD com Claude para Engenharia de Dados no Databricks",
     subtitle:
-      "Reuniao de alinhamento em 24 de abril de 2026. Como transformar pedidos vagos em especificacoes executaveis, com mais padrao, qualidade e velocidade.",
+      "Reunião de alinhamento em 24 de abril de 2026. Como transformar pedidos vagos em especificações executáveis, com mais padrão, qualidade e velocidade.",
     expectedVisual: "Capa executiva com mensagem principal e quadro-resumo dos pilares.",
-    moment: "Spec primeiro. Codigo depois.",
+    moment: "Spec primeiro. Código depois.",
     notes:
-      "Abrir com a mensagem central: nao estamos propondo IA sem controle. Estamos propondo um jeito mais disciplinado de especificar, implementar e operar mudancas de dados.",
+      "Abrir com a mensagem central: não estamos propondo IA sem controle. Estamos propondo um jeito mais disciplinado de especificar, implementar e operar mudanças de dados.",
     sources: ["claude_memory", "claude_settings", "bundles", "lakeflow_sdp"],
   },
   {
@@ -75,23 +75,23 @@ const SLIDES = [
     kicker: "AGENDA",
     title: "O que vamos cobrir hoje",
     subtitle:
-      "Uma proposta de como trabalhar melhor — nao mais rapido — com IA em engenharia de dados.",
+      "Uma proposta de como trabalhar melhor — não mais rápido — com IA em engenharia de dados.",
     cards: [
       [
-        "Parte 1 — Contexto e metodo",
-        "Por que mudar o fluxo. O que e SDD, spec e prompting ancorado em artefatos.",
+        "Parte 1 — Contexto e método",
+        "Por que mudar o fluxo. O que é SDD, spec e prompting ancorado em artefatos.",
       ],
       [
         "Parte 2 — Ferramentas e agentes",
         "CLAUDE.md, rules, memory e agentes especializados por responsabilidade.",
       ],
       [
-        "Parte 3 — Casos, adocao e piloto",
-        "Onde a IA gera ganho real. Como medir. Como comecar pequeno e crescer por evidencias.",
+        "Parte 3 — Casos, adoção e piloto",
+        "Onde a IA gera ganho real. Como medir. Como começar pequeno e crescer por evidências.",
       ],
     ],
     notes:
-      "Slide de abertura para orientar o time antes de entrar nas sessoes. Deixar claro que a reuniao tem tres grandes blocos e vai terminar com uma proposta concreta de piloto.",
+      "Slide de abertura para orientar o time antes de entrar nas sessões. Deixar claro que a reunião tem três grandes blocos e vai terminar com uma proposta concreta de piloto.",
     sources: ["claude_memory", "bundles", "lakeflow_best_practices"],
   },
   {
@@ -100,38 +100,38 @@ const SLIDES = [
     sectionNumber: "01",
     title: "Contexto e tese",
     subtitle:
-      "Produtividade com IA nao vem de pedir codigo mais rapido. Vem de reduzir ambiguidade, retrabalho e falha operacional.",
+      "Produtividade com IA não vem de pedir código mais rápido. Vem de reduzir ambiguidade, retrabalho e falha operacional.",
     topics: [
       "Dor atual no fluxo",
       "Onde a IA gera ganho real",
-      "Spec primeiro, codigo depois",
+      "Spec primeiro, código depois",
     ],
     notes:
-      "Usar este slide como transicao entre a capa e o bloco de enquadramento. A ideia e mostrar que a conversa sera separada por sessoes bem definidas.",
+      "Usar este slide como transição entre a capa e o bloco de enquadramento. A ideia é mostrar que a conversa será separada por sessões bem definidas.",
     sources: ["claude_memory", "bundles"],
   },
   {
     layout: "cards",
     kicker: "POR QUE MUDAR",
-    title: "Hoje a maior perda nao esta na escrita do codigo",
+    title: "Hoje a maior perda não está na escrita do código",
     subtitle:
-      "Ela aparece na ambiguidade do pedido, no retrabalho entre times e na validacao tardia do impacto downstream.",
+      "Ela aparece na ambiguidade do pedido, no retrabalho entre times e na validação tardia do impacto downstream.",
     cards: [
       [
         "Pedidos vagos",
-        "Sem contrato de fonte, destino, grain e regras, o trabalho comeca na suposicao.",
+        "Sem contrato de fonte, destino, grain e regras, o trabalho começa na suposição.",
       ],
       [
-        "Entrega nao padronizada",
-        "Cada pipeline vira uma excecao. Testes, backfill e rollback entram tarde ou nao entram.",
+        "Entrega não padronizada",
+        "Cada pipeline vira uma exceção. Testes, backfill e rollback entram tarde ou não entram.",
       ],
       [
-        "Validacao no fim",
-        "Schema drift, duplicidade e quebra downstream aparecem quando a mudanca ja esta em execucao.",
+        "Validação no fim",
+        "Schema drift, duplicidade e quebra downstream aparecem quando a mudança já está em execução.",
       ],
     ],
     notes:
-      "Conectar com a dor real do time. O custo principal e cognitivo e operacional, nao de digitacao.",
+      "Conectar com a dor real do time. O custo principal é cognitivo e operacional, não de digitação.",
     sources: ["lakeflow_best_practices", "unity_catalog"],
   },
   {
@@ -139,27 +139,27 @@ const SLIDES = [
     kicker: "ALAVANCAS DE PRODUTIVIDADE",
     title: "Onde a IA realmente economiza tempo na engenharia de dados",
     subtitle:
-      "O maior ganho nao e escrever SQL mais rapido. E reduzir friccao ao longo do ciclo inteiro.",
+      "O maior ganho não é escrever SQL mais rápido. É reduzir fricção ao longo do ciclo inteiro.",
     quadCards: [
       [
         "Refino da demanda",
-        "Transforma pedido vago em spec, perguntas e lacunas antes de mexer no codigo.",
+        "Transforma pedido vago em spec, perguntas e lacunas antes de mexer no código.",
       ],
       [
-        "Scaffolding tecnico",
-        "Acelera bundles, jobs, pipelines, APIs, testes e documentacao inicial.",
+        "Scaffolding técnico",
+        "Acelera bundles, jobs, pipelines, APIs, testes e documentação inicial.",
       ],
       [
         "Review e qualidade",
-        "Revisa risco, impacto downstream, checks, rollback e pontos cegos de operacao.",
+        "Revisa risco, impacto downstream, checks, rollback e pontos cegos de operação.",
       ],
       [
-        "Operacao e suporte",
-        "Ajuda em runbooks, troubleshooting, tuning e padronizacao de resposta a incidentes.",
+        "Operação e suporte",
+        "Ajuda em runbooks, troubleshooting, tuning e padronização de resposta a incidentes.",
       ],
     ],
     notes:
-      "Deixar claro que produtividade com IA em dados e multifase. Nao e apenas geracao de codigo.",
+      "Deixar claro que produtividade com IA em dados é multifase. Não é apenas geração de código.",
     sources: ["claude_memory", "bundles", "lakeflow_best_practices"],
   },
   {
@@ -168,48 +168,48 @@ const SLIDES = [
     sectionNumber: "02",
     title: "SDD, spec e prompting",
     subtitle:
-      "Aqui entra o coracao da proposta: transformar demanda vaga em contrato executavel antes de escrever qualquer pipeline ou API.",
+      "Aqui entra o coração da proposta: transformar demanda vaga em contrato executável antes de escrever qualquer pipeline ou API.",
     topics: [
       "Fluxo SDD no dia a dia",
-      "Spec curta, mas acionavel",
+      "Spec curta, mas acionável",
       "Prompt ancorado em artefatos",
     ],
     notes:
-      "Abrir o bloco explicando que SDD e o mecanismo que estabiliza a conversa com a IA.",
+      "Abrir o bloco explicando que SDD é o mecanismo que estabiliza a conversa com a IA.",
     sources: ["claude_memory", "bundles", "lakeflow_best_practices"],
   },
   {
     layout: "flow",
     kicker: "DO PROBLEMA A ENTREGA",
-    title: "A spec e o elo que faltava entre analise e implementacao",
+    title: "A spec é o elo que faltava entre análise e implementação",
     subtitle:
-      "Analise de requisitos entende o problema. Spec traduz em contrato executavel. Sem esse elo, a ambiguidade vai para o codigo.",
+      "Análise de requisitos entende o problema. Spec traduz em contrato executável. Sem esse elo, a ambiguidade vai para o código.",
     steps: [
-      ["Demanda", "Stakeholder define o problema e o impacto esperado no negocio"],
-      ["Analise", "Entende escopo, fontes, regras de negocio e restricoes operacionais"],
-      ["Spec", "Traduz a analise em contrato tecnico: grain, checks, incremental e aceite"],
-      ["Implementacao", "Claude ou engenheiro executa com precisao — sem adivinhar intencao"],
-      ["Validacao", "Checks, reconciliacao e criterio de aceite fecham o ciclo"],
+      ["Demanda", "Stakeholder define o problema e o impacto esperado no negócio"],
+      ["Análise", "Entende escopo, fontes, regras de negócio e restrições operacionais"],
+      ["Spec", "Traduz a análise em contrato técnico: grain, checks, incremental e aceite"],
+      ["Implementação", "Claude ou engenheiro executa com precisão — sem adivinhar intenção"],
+      ["Validação", "Checks, reconciliação e critério de aceite fecham o ciclo"],
     ],
     notes:
-      "Esse slide ancora o conceito antes de entrar no fluxo tecnico. A spec nao substitui a analise de requisitos — ela e o next step dela. O que o SDD propoe e formalizar esse segundo passo, que hoje quase sempre e pulado: o engenheiro recebe o resultado da analise (as vezes so uma conversa no Teams) e vai direto para o codigo, carregando toda a ambiguidade.",
+      "Esse slide ancora o conceito antes de entrar no fluxo técnico. A spec não substitui a análise de requisitos — ela é o next step dela. O que o SDD propõe é formalizar esse segundo passo, que hoje quase sempre é pulado: o engenheiro recebe o resultado da análise (às vezes só uma conversa no Teams) e vai direto para o código, carregando toda a ambiguidade.",
     sources: ["claude_memory", "bundles", "lakeflow_best_practices"],
   },
   {
     layout: "flow",
     kicker: "SDD NA PRATICA",
-    title: "Um pedido vira contrato antes de virar codigo",
+    title: "Um pedido vira contrato antes de virar código",
     subtitle:
-      "Esse e o ponto central do ganho: menos suposicao, menos ida e volta, mais padrao na entrega.",
+      "Esse é o ponto central do ganho: menos suposição, menos ida e volta, mais padrão na entrega.",
     steps: [
       ["Pedido", "Ex.: consolidar pedidos pagos em analytics.silver.orders"],
       ["Spec", "Objetivo, fonte, alvo, grain, incrementalidade e checks"],
       ["Build", "Claude gera SQL ou PySpark, bundle, job ou pipeline"],
-      ["Validate", "Testes, reconciliacao e impacto downstream"],
+      ["Validate", "Testes, reconciliação e impacto downstream"],
       ["Run", "Backfill, rollback, monitoramento e custo"],
     ],
     notes:
-      "Explicar que SDD nao elimina conversa. Ele faz a conversa produzir um artefato reutilizavel e executavel.",
+      "Explicar que SDD não elimina conversa. Ele faz a conversa produzir um artefato reutilizável e executável.",
     sources: ["bundles", "lakeflow_best_practices", "lakeflow_sdp"],
   },
   {
@@ -217,15 +217,15 @@ const SLIDES = [
     kicker: "EXEMPLO DE SPEC",
     title: "Spec curta para uma silver table no Databricks",
     subtitle:
-      "Sem isso, Claude precisa adivinhar. Com isso, ele executa com muito mais precisao.",
+      "Sem isso, Claude precisa adivinhar. Com isso, ele executa com muito mais precisão.",
     leftLabel: "SPEC",
     leftText:
-      "Objetivo: consolidar pedidos pagos\nFonte: bronze.orders_events\nDestino: analytics.silver.orders\nGrain: 1 linha por order_id\nIncremental: MERGE por order_id\nLate data: reprocessar 7 dias\nQualidade:\n- order_id unico\n- paid_at nao nulo\n- total_amount >= 0\nAceite: divergencia diaria < 0,5%",
-    rightLabel: "SAIDA ESPERADA DO CLAUDE",
+      "Objetivo: consolidar pedidos pagos\nFonte: bronze.orders_events\nDestino: analytics.silver.orders\nGrain: 1 linha por order_id\nIncremental: MERGE por order_id\nLate data: reprocessar 7 dias\nQualidade:\n- order_id único\n- paid_at não nulo\n- total_amount >= 0\nAceite: divergência diária < 0,5%",
+    rightLabel: "SAÍDA ESPERADA DO CLAUDE",
     rightText:
-      "1. Estrutura de bundle, job ou pipeline\n2. SQL ou PySpark com MERGE e chaves corretas\n3. Regras de qualidade e reconciliacao\n4. Backfill, rollback e riscos downstream",
+      "1. Estrutura de bundle, job ou pipeline\n2. SQL ou PySpark com MERGE e chaves corretas\n3. Regras de qualidade e reconciliação\n4. Backfill, rollback e riscos downstream",
     notes:
-      "Mostrar que a spec e simples, mas suficiente para reduzir ambiguidade.",
+      "Mostrar que a spec é simples, mas suficiente para reduzir ambiguidade.",
     sources: ["bundles", "lakeflow_sdp", "lakeflow_best_practices"],
   },
   {
@@ -233,31 +233,31 @@ const SLIDES = [
     kicker: "ANTES X DEPOIS",
     title: "O jeito de pedir muda a qualidade da entrega",
     subtitle:
-      "A mesma demanda pode gerar retrabalho ou gerar uma entrega muito mais previsivel.",
+      "A mesma demanda pode gerar retrabalho ou gerar uma entrega muito mais previsível.",
     leftLabel: "PEDIDO VAGO",
     leftText:
-      "Cria uma pipeline para pedidos pagos no Databricks.\n\nProblemas:\n- nao diz fonte\n- nao diz alvo\n- nao diz grain\n- nao diz incremental\n- nao diz checks\n- nao diz aceite",
+      "Cria uma pipeline para pedidos pagos no Databricks.\n\nProblemas:\n- não diz fonte\n- não diz alvo\n- não diz grain\n- não diz incremental\n- não diz checks\n- não diz aceite",
     rightLabel: "PEDIDO COM SPEC",
     rightText:
-      "Criar analytics.silver.orders a partir de bronze.orders_events.\n\n1 linha por order_id\nMERGE por order_id\nLate data de 7 dias\nChecks: unicidade, not null, total >= 0\nSaida com bundle, validacao e rollback",
+      "Criar analytics.silver.orders a partir de bronze.orders_events.\n\n1 linha por order_id\nMERGE por order_id\nLate data de 7 dias\nChecks: unicidade, not null, total >= 0\nSaída com bundle, validação e rollback",
     notes:
-      "Esse slide ajuda a vender SDD como mudanca de processo, nao apenas de ferramenta.",
+      "Esse slide ajuda a vender SDD como mudança de processo, não apenas de ferramenta.",
     sources: ["bundles", "lakeflow_best_practices"],
   },
   {
     layout: "example",
     kicker: "PROMPTING OPERACIONAL",
-    title: "A melhor forma de usar IA e ancorar em artefatos",
+    title: "A melhor forma de usar IA é ancorar em artefatos",
     subtitle:
-      "Prompt bom em engenharia de dados quase sempre referencia spec, regras e formato de saida.",
+      "Prompt bom em engenharia de dados quase sempre referencia spec, regras e formato de saída.",
     leftLabel: "PROMPT FRACO",
     leftText:
-      "Gera o codigo para essa pipeline no Databricks.\n\nProblema:\n- o Claude precisa adivinhar a maior parte do contexto\n- a saida varia demais\n- review fica mais caro",
+      "Gera o código para essa pipeline no Databricks.\n\nProblema:\n- o Claude precisa adivinhar a maior parte do contexto\n- a saída varia demais\n- review fica mais caro",
     rightLabel: "PROMPT BOM",
     rightText:
-      "Implemente a spec abaixo.\nSe houver lacunas, liste antes de codar.\nDepois entregue:\n1. bundle ou pipeline\n2. SQL ou PySpark\n3. validacao\n4. riscos\n5. backfill e rollback",
+      "Implemente a spec abaixo.\nSe houver lacunas, liste antes de codar.\nDepois entregue:\n1. bundle ou pipeline\n2. SQL ou PySpark\n3. validação\n4. riscos\n5. backfill e rollback",
     notes:
-      "Fazer a ligacao entre SDD e prompting. A spec e o artefato que estabiliza a conversa.",
+      "Fazer a ligação entre SDD e prompting. A spec é o artefato que estabiliza a conversa.",
     sources: ["claude_memory", "bundles"],
   },
   {
@@ -266,52 +266,52 @@ const SLIDES = [
     sectionNumber: "03",
     title: "CLAUDE.md, rules e memory",
     subtitle:
-      "Depois do spec, o segundo ganho vem do contexto persistente: regras do projeto, memoria do time e organizacao do repositorio.",
+      "Depois do spec, o segundo ganho vem do contexto persistente: regras do projeto, memória do time e organização do repositório.",
     topics: [
       "Separar arquivo, regra e mecanismo",
       "Modularizar contexto com imports",
-      "Padrao reutilizavel por repositorio",
+      "Padrão reutilizável por repositório",
     ],
     notes:
-      "Esse separador prepara o publico para a parte mais conceitual sobre memoria persistente e organizacao do contexto.",
+      "Esse separador prepara o público para a parte mais conceitual sobre memória persistente e organização do contexto.",
     sources: ["claude_memory", "claude_settings", "claude_slash"],
   },
   {
     layout: "cards",
     kicker: "CLAUDE.MD, RULES, MEMORY",
-    title: "Esses termos se conectam, mas nao significam a mesma coisa",
+    title: "Esses termos se conectam, mas não significam a mesma coisa",
     subtitle:
-      "Quando separam bem arquivo, conteudo e mecanismo de carga, o uso do Claude deixa de ser improvisado.",
+      "Quando separam bem arquivo, conteúdo e mecanismo de carga, o uso do Claude deixa de ser improvisado.",
     cards: [
       [
         "CLAUDE.md",
-        "E o arquivo onde ficam as instrucoes persistentes do projeto ou do usuario.",
+        "É o arquivo onde ficam as instruções persistentes do projeto ou do usuário.",
       ],
       [
         "Rules",
-        "Sao as regras operacionais. Podem ficar no proprio CLAUDE.md ou em rules.md importado com @imports.",
+        "São as regras operacionais. Podem ficar no próprio CLAUDE.md ou em rules.md importado com @imports.",
       ],
       [
         "Memory",
-        "E o mecanismo de carga por escopo. memory.md pode guardar decisoes do time e ser importado no CLAUDE.md.",
+        "É o mecanismo de carga por escopo. memory.md pode guardar decisões do time e ser importado no CLAUDE.md.",
       ],
     ],
     notes:
-      "Explicar tambem que /init ajuda a criar o CLAUDE.md do projeto, # grava memoria rapida e @imports modularizam o arquivo.",
+      "Explicar também que /init ajuda a criar o CLAUDE.md do projeto, # grava memória rápida e @imports modularizam o arquivo.",
     sources: ["claude_memory", "claude_settings", "claude_slash"],
   },
   {
     layout: "example",
     kicker: "EXEMPLO DE CLAUDE.MD",
-    title: "Um CLAUDE.md bom e curto, especifico e acionavel",
+    title: "Um CLAUDE.md bom é curto, específico e acionável",
     subtitle:
-      "O objetivo nao e ter um manifesto enorme. E orientar consistentemente o comportamento do Claude.",
+      "O objetivo não é ter um manifesto enorme. É orientar consistentemente o comportamento do Claude.",
     leftLabel: "CLAUDE.MD DE EXEMPLO",
     leftText:
-      "## Working mode\n- spec first\n- nao assumir schema\n- listar lacunas antes de codar\n\n## Databricks defaults\n- preferir bundle\n- usar Unity Catalog\n- separar bronze, silver e gold\n\n## Response\n1. spec summary\n2. implementation\n3. validation\n4. rollback",
-    rightLabel: "EFEITO PRATICO",
+      "## Working mode\n- spec first\n- não assumir schema\n- listar lacunas antes de codar\n\n## Databricks defaults\n- preferir bundle\n- usar Unity Catalog\n- separar bronze, silver e gold\n\n## Response\n1. spec summary\n2. implementation\n3. validation\n4. rollback",
+    rightLabel: "EFEITO PRÁTICO",
     rightText:
-      "Padroniza a resposta do Claude\nReduz esquecimentos em toda mudanca\nAcelera review tecnico\nFacilita onboarding do time\nPermite evoluir o padrao por repositorio",
+      "Padroniza a resposta do Claude\nReduz esquecimentos em toda mudança\nAcelera review técnico\nFacilita onboarding do time\nPermite evoluir o padrão por repositório",
     notes:
       "Aqui vale mostrar o arquivo real que ficou nos artefatos de apoio.",
     sources: ["claude_memory", "bundles", "unity_catalog"],
@@ -321,62 +321,62 @@ const SLIDES = [
     kicker: "ARQUITETURA DE ARQUIVOS",
     title: "Como organizar CLAUDE.md, rules.md e memory.md no repo",
     subtitle:
-      "rules.md e memory.md podem ser convencoes do time importadas pelo CLAUDE.md para manter o contexto modular.",
+      "rules.md e memory.md podem ser convenções do time importadas pelo CLAUDE.md para manter o contexto modular.",
     leftLabel: "ESTRUTURA DE EXEMPLO",
     leftText:
       ".\n|- CLAUDE.md\n|- docs/\n|  |- rules.md\n|  |- memory.md\n|- .claude/\n|  |- agents/\n|     |- databricks-platform.md\n|     |- api-backend.md\n|     |- spark-tuning.md",
     rightLabel: "CLAUDE.MD (USANDO IMPORTS)",
     rightText:
-      "# Instrucoes base\n- spec first\n- responder com validacao e rollback\n\n# Importar contexto modular\n@docs/rules.md\n@docs/memory.md\n\n# Agentes do projeto\n- usar /agents para criar e manter",
+      "# Instruções base\n- spec first\n- responder com validação e rollback\n\n# Importar contexto modular\n@docs/rules.md\n@docs/memory.md\n\n# Agentes do projeto\n- usar /agents para criar e manter",
     notes:
-      "Mensagem chave: rules.md e memory.md nao sao obrigatorios do produto; sao convencoes uteis quando o time quer modularizar contexto.",
+      "Mensagem chave: rules.md e memory.md não são obrigatórios do produto; são convenções úteis quando o time quer modularizar contexto.",
     sources: ["claude_memory", "claude_slash", "claude_subagents"],
   },
   {
     layout: "section",
     kicker: "SESSAO 4",
     sectionNumber: "04",
-    title: "Agentes e especializacao",
+    title: "Agentes e especialização",
     subtitle:
-      "Agentes resolvem a proxima etapa de escala: distribuir responsabilidades sem perder o contrato central da entrega.",
+      "Agentes resolvem a próxima etapa de escala: distribuir responsabilidades sem perder o contrato central da entrega.",
     topics: [
       "Como criar agentes",
-      "Como definir skills na pratica",
-      "Uso explicito e delegacao automatica",
+      "Como definir skills na prática",
+      "Uso explícito e delegação automática",
     ],
     notes:
-      "Entrar nesta sessao reforcando que agente nao e um prompt gigante; e uma unidade reutilizavel de especializacao.",
+      "Entrar nesta sessão reforçando que agente não é um prompt gigante; é uma unidade reutilizável de especialização.",
     sources: ["claude_subagents", "claude_slash", "claude_settings"],
   },
   {
     layout: "flow",
     kicker: "CRIACAO E USO DE AGENTES",
-    title: "Passo a passo para criar e usar agentes especificos",
+    title: "Passo a passo para criar e usar agentes específicos",
     subtitle:
       "Em vez de improvisar prompts longos, padronize agentes por responsabilidade e ferramenta.",
     steps: [
       ["Mapear tarefa", "Ex.: tuning Spark, API backend, review de qualidade de dados"],
-      ["Criar agente", "Usar /agents e definir nome, descricao, prompt e escopo"],
-      ["Restringir tools", "Liberar apenas o necessario: Read, Grep, Bash ou full quando fizer sentido"],
-      ["Testar uso", "Invocar em tarefa real e revisar se a saida segue o contrato esperado"],
+      ["Criar agente", "Usar /agents e definir nome, descrição, prompt e escopo"],
+      ["Restringir tools", "Liberar apenas o necessário: Read, Grep, Bash ou full quando fizer sentido"],
+      ["Testar uso", "Invocar em tarefa real e revisar se a saída segue o contrato esperado"],
       ["Evoluir", "Ajustar prompt e limites com base em incidentes, retrabalho e qualidade"],
     ],
     notes:
-      "Referenciar /agents e reforcar que agentes reduzem ruido de contexto quando sao bem focados.",
+      "Referenciar /agents e reforçar que agentes reduzem ruído de contexto quando são bem focados.",
     sources: ["claude_subagents", "claude_slash"],
   },
   {
     layout: "example",
     kicker: "EXEMPLO DE CRIACAO",
-    title: "Exemplo concreto de criacao de um agente",
+    title: "Exemplo concreto de criação de um agente",
     subtitle:
       "O time pode criar agentes pela interface ou diretamente por arquivo Markdown com frontmatter.",
-    leftLabel: "CRIACAO VIA /AGENTS",
+    leftLabel: "CRIAÇÃO VIA /AGENTS",
     leftText:
       "1. Rodar /agents\n2. Escolher Create New Agent\n3. Selecionar project-level\n4. Name: spark-tuning\n5. Description: Use proactively para tuning Spark\n6. Tools: Read, Grep, Bash\n7. Salvar e testar",
-    rightLabel: "CRIACAO VIA ARQUIVO",
+    rightLabel: "CRIAÇÃO VIA ARQUIVO",
     rightText:
-      ".claude/agents/spark-tuning.md\n\n---\nname: spark-tuning\ndescription: Use proactively para tuning Spark\ntools: Read, Grep, Bash\n---\n\nVoce revisa shuffle, skew, merge, explain plan e custo.",
+      ".claude/agents/spark-tuning.md\n\n---\nname: spark-tuning\ndescription: Use proactively para tuning Spark\ntools: Read, Grep, Bash\n---\n\nVocê revisa shuffle, skew, merge, explain plan e custo.",
     notes:
       "Esse slide resolve a lacuna principal: mostrar literalmente como o agente nasce.",
     sources: ["claude_subagents", "claude_slash"],
@@ -384,47 +384,47 @@ const SLIDES = [
   {
     layout: "example",
     kicker: "IMPLEMENTACAO VIA API",
-    title: "Para quem constroi produtos: agentes via Anthropic API",
+    title: "Para quem constrói produtos: agentes via Anthropic API",
     subtitle:
-      "Alem do Claude Code, e possivel criar e orquestrar agentes diretamente pela API — para pipelines automatizados e produtos internos.",
+      "Além do Claude Code, é possível criar e orquestrar agentes diretamente pela API — para pipelines automatizados e produtos internos.",
     leftLabel: "CRIAR AGENTE (UMA VEZ)",
     leftText:
-      "agent = client.beta.agents.create(\n  name='data-quality-reviewer',\n  model='claude-opus-4-7',\n  system='Voce revisa checks, '\n         'reconciliacao e rollback.',\n  tools=[{\n    'type': 'agent_toolset_20260401'\n  }]\n)\n# Guardar agent.id para reutilizar",
-    rightLabel: "INICIAR SESSAO (CADA EXECUCAO)",
+      "agent = client.beta.agents.create(\n  name='data-quality-reviewer',\n  model='claude-opus-4-7',\n  system='Você revisa checks, '\n         'reconciliação e rollback.',\n  tools=[{\n    'type': 'agent_toolset_20260401'\n  }]\n)\n# Guardar agent.id para reutilizar",
+    rightLabel: "INICIAR SESSÃO (CADA EXECUÇÃO)",
     rightText:
       "session = client.beta.sessions.create(\n  agent=agent.id,\n  environment_id=env.id\n)\n\nclient.beta.sessions.events.send(\n  session.id,\n  events=[{\n    'type': 'user.message',\n    'content': [{\n      'type': 'text',\n      'text': spec_texto\n    }]\n  }]\n)",
     notes:
-      "Diferenciar os dois contextos para o time tecnico: Claude Code serve o engenheiro no dia a dia; a API serve quem quer embutir agentes em pipelines, produtos internos ou automacoes recorrentes. O objeto agent e persistente e versionado — criar uma vez, reutilizar sempre.",
+      "Diferenciar os dois contextos para o time técnico: Claude Code serve o engenheiro no dia a dia; a API serve quem quer embutir agentes em pipelines, produtos internos ou automações recorrentes. O objeto agent é persistente e versionado — criar uma vez, reutilizar sempre.",
     sources: ["claude_subagents", "claude_settings"],
   },
   {
     layout: "example",
     kicker: "ANATOMIA DO AGENTE",
-    title: "A skill do agente nasce de tres elementos combinados",
+    title: "A skill do agente nasce de três elementos combinados",
     subtitle:
-      "Nao existe campo formal chamado skill. A especializacao vem da combinacao de gatilho, escopo de ferramenta e prompt.",
+      "Não existe campo formal chamado skill. A especialização vem da combinação de gatilho, escopo de ferramenta e prompt.",
     leftLabel: "ARQUIVO DE AGENTE",
     leftText:
-      "---\nname: spark-tuning\ndescription: Use proactively para analisar\ncusto e performance em Spark\ntools: Read, Grep, Bash\n---\n\nVoce e especialista em Spark no Databricks.\nSempre revise partitions, shuffle, skew,\nmerge strategy, explain plan e custo.",
-    rightLabel: "OS TRES ELEMENTOS",
+      "---\nname: spark-tuning\ndescription: Use proactively para analisar\ncusto e performance em Spark\ntools: Read, Grep, Bash\n---\n\nVocê é especialista em Spark no Databricks.\nSempre revise partitions, shuffle, skew,\nmerge strategy, explain plan e custo.",
+    rightLabel: "OS TRÊS ELEMENTOS",
     rightText:
-      "DESCRIPTION\nDefine quando o agente e acionado.\nUma boa descricao melhora a delegacao automatica.\n\nTOOLS\nDefinem o alcance. Tuning nao precisa\nescrever — apenas Read, Grep e Bash.\n\nPROMPT\nDefine o que ele sabe, como raciocina\ne o formato da resposta esperada.",
+      "DESCRIPTION\nDefine quando o agente é acionado.\nUma boa descrição melhora a delegação automática.\n\nTOOLS\nDefinem o alcance. Tuning não precisa\nescrever — apenas Read, Grep e Bash.\n\nPROMPT\nDefine o que ele sabe, como raciocina\ne o formato da resposta esperada.",
     notes:
-      "Slide unificado: anatomia do agente com o arquivo real e os tres elementos que definem a skill. Reforcar que agente nao e super prompt — e especializacao reutilizavel com contexto proprio.",
+      "Slide unificado: anatomia do agente com o arquivo real e os três elementos que definem a skill. Reforçar que agente não é super prompt — é especialização reutilizável com contexto próprio.",
     sources: ["claude_subagents", "claude_settings"],
   },
   {
     layout: "example",
     kicker: "EXEMPLO DE USO",
-    title: "Exemplo concreto de uso explicito e uso automatico",
+    title: "Exemplo concreto de uso explícito e uso automático",
     subtitle:
-      "Depois de criado, o agente pode ser chamado diretamente ou acionado pelo Claude quando a tarefa combina com a descricao.",
-    leftLabel: "USO EXPLICITO",
+      "Depois de criado, o agente pode ser chamado diretamente ou acionado pelo Claude quando a tarefa combina com a descrição.",
+    leftLabel: "USO EXPLÍCITO",
     leftText:
-      "> Use the spark-tuning subagent to inspect the MERGE in analytics.silver.orders and point out shuffle, skew and partition risks.\n\nSaida esperada:\n- hipoteses\n- checks\n- recomendacoes\n- risco das mudancas",
-    rightLabel: "USO AUTOMATICO",
+      "> Use the spark-tuning subagent to inspect the MERGE in analytics.silver.orders and point out shuffle, skew and partition risks.\n\nSaída esperada:\n- hipóteses\n- checks\n- recomendações\n- risco das mudanças",
+    rightLabel: "USO AUTOMÁTICO",
     rightText:
-      "Pedido principal:\n> Implemente a spec abaixo no Databricks e faca review de qualidade antes do merge.\n\nSe a descricao dos agentes estiver boa, Claude pode delegar para:\n- databricks-platform\n- data-quality-reviewer",
+      "Pedido principal:\n> Implemente a spec abaixo no Databricks e faça review de qualidade antes do merge.\n\nSe a descrição dos agentes estiver boa, Claude pode delegar para:\n- databricks-platform\n- data-quality-reviewer",
     notes:
       "Mensagem importante: agente pode ser invocado explicitamente ou usado automaticamente conforme a tarefa.",
     sources: ["claude_subagents"],
@@ -434,7 +434,7 @@ const SLIDES = [
     kicker: "CATALOGO DE AGENTES",
     title: "Um conjunto inicial de agentes faz sentido para o seu stack",
     subtitle:
-      "Nao crie um agente generalista para tudo. Crie agentes com responsabilidade clara.",
+      "Não crie um agente generalista para tudo. Crie agentes com responsabilidade clara.",
     quadCards: [
       [
         "databricks-platform",
@@ -442,19 +442,19 @@ const SLIDES = [
       ],
       [
         "api-backend",
-        "Implementa APIs para consulta, servico de metadados, autenticacao, contratos e documentacao.",
+        "Implementa APIs para consulta, serviço de metadados, autenticação, contratos e documentação.",
       ],
       [
         "spark-tuning",
-        "Analisa shuffle, skew, particoes, merge, storage layout e custo de execucao.",
+        "Analisa shuffle, skew, partições, merge, storage layout e custo de execução.",
       ],
       [
         "data-quality-reviewer",
-        "Revisa checks, impacto downstream, reconciliacao, rollback e sinais de falha silenciosa.",
+        "Revisa checks, impacto downstream, reconciliação, rollback e sinais de falha silenciosa.",
       ],
     ],
     notes:
-      "Conectar com a fala do usuario: Databricks, desenvolvimento de API e tuning.",
+      "Conectar com a fala do usuário: Databricks, desenvolvimento de API e tuning.",
     sources: ["claude_subagents", "claude_slash", "bundles", "lakeflow_jobs", "lakeflow_sdp"],
   },
   {
@@ -465,28 +465,28 @@ const SLIDES = [
     subtitle:
       "Com contexto e agentes definidos, a conversa muda de teoria para ganho concreto em Databricks, APIs, tuning e qualidade.",
     topics: [
-      "Databricks e padrao de plataforma",
+      "Databricks e padrão de plataforma",
       "API backend como acelerador de consumo",
-      "Tuning, review e documentacao",
+      "Tuning, review e documentação",
     ],
     notes:
-      "Esta sessao responde diretamente onde a IA aumenta produtividade no trabalho cotidiano.",
+      "Esta sessão responde diretamente onde a IA aumenta produtividade no trabalho cotidiano.",
     sources: ["bundles", "lakeflow_jobs", "lakeflow_best_practices"],
   },
   {
     layout: "quad",
     kicker: "DATABRICKS COM IA",
-    title: "No Databricks, a IA ajuda mais onde a plataforma exige padrao",
+    title: "No Databricks, a IA ajuda mais onde a plataforma exige padrão",
     subtitle:
       "Quanto mais repetitivo e estruturado o trabalho, maior tende a ser o ganho de produtividade.",
     quadCards: [
       [
         "Bundles e deploy",
-        "Cria targets, estrutura de projeto, jobs e parametros com muito menos trabalho manual.",
+        "Cria targets, estrutura de projeto, jobs e parâmetros com muito menos trabalho manual.",
       ],
       [
         "Lakeflow e pipelines",
-        "Acelera criacao de pipeline, ingestao incremental, contratos e validacoes.",
+        "Acelera criação de pipeline, ingestão incremental, contratos e validações.",
       ],
       [
         "Unity Catalog e nomenclatura",
@@ -494,67 +494,67 @@ const SLIDES = [
       ],
       [
         "Troubleshooting",
-        "Resume logs, levanta hipoteses e guia a investigacao de falhas com mais rapidez.",
+        "Resume logs, levanta hipóteses e guia a investigação de falhas com mais rapidez.",
       ],
     ],
     notes:
-      "Conectar IA com disciplina de plataforma. Onde existe padrao, existe mais oportunidade de automacao segura.",
+      "Conectar IA com disciplina de plataforma. Onde existe padrão, existe mais oportunidade de automação segura.",
     sources: ["bundles", "lakeflow_jobs", "lakeflow_sdp", "unity_catalog"],
   },
   {
     layout: "cards",
     kicker: "API BACKEND COM IA",
-    title: "Desenvolvimento de API tambem fica mais rapido e mais consistente",
+    title: "Desenvolvimento de API também fica mais rápido e mais consistente",
     subtitle:
-      "IA ajuda tanto no scaffold quanto no contrato, no teste e na documentacao do servico.",
+      "IA ajuda tanto no scaffold quanto no contrato, no teste e na documentação do serviço.",
     cards: [
       [
         "Contrato e endpoint",
-        "Acelera definicao de request, response, filtros, erros, autenticacao e documentacao.",
+        "Acelera definição de request, response, filtros, erros, autenticação e documentação.",
       ],
       [
-        "Implementacao",
-        "Ajuda a gerar handlers, servicos, validadores, testes e exemplos de uso mais rapidamente.",
+        "Implementação",
+        "Ajuda a gerar handlers, serviços, validadores, testes e exemplos de uso mais rapidamente.",
       ],
       [
-        "Review tecnico",
+        "Review técnico",
         "Revisa breaking changes, casos de erro, observabilidade e impacto em consumidores.",
       ],
     ],
     notes:
-      "Amarrar com o agente api-backend e com o stack do time quando houver servicos de apoio ao dado.",
+      "Amarrar com o agente api-backend e com o stack do time quando houver serviços de apoio ao dado.",
     sources: ["claude_subagents", "claude_memory"],
   },
   {
     layout: "cards",
     kicker: "SPARK TUNING COM IA",
-    title: "Tuning nao vira automatico, mas a IA reduz o tempo de analise",
+    title: "Tuning não vira automático, mas a IA reduz o tempo de análise",
     subtitle:
-      "Ela ajuda a organizar hipoteses, interpretar sinais e sugerir verificacoes com muito mais velocidade.",
+      "Ela ajuda a organizar hipóteses, interpretar sinais e sugerir verificações com muito mais velocidade.",
     cards: [
       [
-        "Hipoteses mais rapidas",
-        "Aponta suspeitas em shuffle, skew, joins, merge, particoes e storage layout.",
+        "Hipóteses mais rápidas",
+        "Aponta suspeitas em shuffle, skew, joins, merge, partições e storage layout.",
       ],
       [
-        "Checklist tecnico",
-        "Lembra explain plan, tamanho de arquivo, cardinalidade, repartition e estrategia incremental.",
+        "Checklist técnico",
+        "Lembra explain plan, tamanho de arquivo, cardinalidade, repartition e estratégia incremental.",
       ],
       [
-        "Comparacao de opcoes",
-        "Ajuda a pesar ganho esperado, custo e risco antes de mexer em pipeline critica.",
+        "Comparação de opções",
+        "Ajuda a pesar ganho esperado, custo e risco antes de mexer em pipeline crítica.",
       ],
     ],
     notes:
-      "Mensagem importante: IA nao substitui conhecimento de Spark, mas acelera a investigacao e o raciocinio.",
+      "Mensagem importante: IA não substitui conhecimento de Spark, mas acelera a investigação e o raciocínio.",
     sources: ["claude_subagents", "lakeflow_best_practices"],
   },
   {
     layout: "cards",
     kicker: "CUSTO, RISCO E CONTROLE",
-    title: "Ganho real exige entender tambem o custo e o risco",
+    title: "Ganho real exige entender também o custo e o risco",
     subtitle:
-      "Usar IA sem clareza sobre custo operacional e pontos de falha e trocar um problema por outro.",
+      "Usar IA sem clareza sobre custo operacional e pontos de falha é trocar um problema por outro.",
     cards: [
       [
         "Custo de uso",
@@ -562,15 +562,15 @@ const SLIDES = [
       ],
       [
         "Risco de erro",
-        "Claude pode gerar codigo plausivel mas incorreto. Review humano continua obrigatorio, especialmente em schemas novos.",
+        "Claude pode gerar código plausível mas incorreto. Review humano continua obrigatório, especialmente em schemas novos.",
       ],
       [
         "Controle e rastreabilidade",
-        "Toda saida do Claude deve passar por PR, checklist e review antes de merge. IA acelera; o engenheiro decide.",
+        "Toda saída do Claude deve passar por PR, checklist e review antes de merge. IA acelera; o engenheiro decide.",
       ],
     ],
     notes:
-      "Esse slide antecipa a objecao mais comum de times tecnicos: quanto custa e o que acontece quando erra? Responder antes de perguntarem aumenta credibilidade da proposta. Enfatizar que o controle nao e opcional — e parte do modelo.",
+      "Esse slide antecipa a objeção mais comum de times técnicos: quanto custa e o que acontece quando erra? Responder antes de perguntarem aumenta credibilidade da proposta. Enfatizar que o controle não é opcional — é parte do modelo.",
     sources: ["claude_memory", "lakeflow_best_practices"],
   },
   {
@@ -581,20 +581,20 @@ const SLIDES = [
       "IA reduz o custo de fazer o que o time sabe que deveria fazer, mas muitas vezes posterga.",
     cards: [
       [
-        "Qualidade e validacao",
-        "Acelera escrita de checks, reconciliacao, cenarios de teste e criterio de aceite.",
+        "Qualidade e validação",
+        "Acelera escrita de checks, reconciliação, cenários de teste e critério de aceite.",
       ],
       [
-        "Documentacao",
-        "Ajuda a manter runbooks, notas de deploy, README e contexto tecnico atualizados.",
+        "Documentação",
+        "Ajuda a manter runbooks, notas de deploy, README e contexto técnico atualizados.",
       ],
       [
         "Code review",
-        "Funciona como revisor inicial para risco operacional, regressao e impacto downstream.",
+        "Funciona como revisor inicial para risco operacional, regressão e impacto downstream.",
       ],
     ],
     notes:
-      "Esse slide sustenta a tese de produtividade total, nao apenas de implementacao.",
+      "Esse slide sustenta a tese de produtividade total, não apenas de implementação.",
     sources: ["claude_memory", "lakeflow_best_practices", "unity_catalog"],
   },
   {
@@ -603,14 +603,14 @@ const SLIDES = [
     sectionNumber: "06",
     title: "Adocao, guardrails e piloto",
     subtitle:
-      "Fechamos com a parte operacional: como usar varios agentes, medir ganho real e fazer um rollout seguro no time.",
+      "Fechamos com a parte operacional: como usar vários agentes, medir ganho real e fazer um rollout seguro no time.",
     topics: [
       "Fluxo multiagente controlado",
-      "Antipadroes e metricas certas",
-      "Rollout pequeno, medido e reversivel",
+      "Antipadrões e métricas certas",
+      "Rollout pequeno, medido e reversível",
     ],
     notes:
-      "Separador do bloco final, voltado a governanca, medicao e proxima etapa pratica.",
+      "Separador do bloco final, voltado a governança, medição e próxima etapa prática.",
     sources: ["claude_memory", "claude_subagents", "lakeflow_best_practices"],
   },
   {
@@ -618,12 +618,12 @@ const SLIDES = [
     kicker: "FLUXO MULTIAGENTE",
     title: "Exemplo de entrega quebrada por especialidade",
     subtitle:
-      "Uma demanda real pode passar por varios agentes sem perder o contrato central da spec.",
+      "Uma demanda real pode passar por vários agentes sem perder o contrato central da spec.",
     steps: [
       ["Engenheiro + Claude", "Fecha ambiguidades e produz a spec com grain, checks e aceite"],
-      ["databricks-platform", "Cria bundle, pipeline, SQL ou PySpark no padrao do repo"],
-      ["api-backend", "Expoe endpoints ou servicos quando a entrega precisa consumo online"],
-      ["spark-tuning", "Revisa custo e performance antes de promover para producao"],
+      ["databricks-platform", "Cria bundle, pipeline, SQL ou PySpark no padrão do repo"],
+      ["api-backend", "Expõe endpoints ou serviços quando a entrega precisa consumo online"],
+      ["spark-tuning", "Revisa custo e performance antes de promover para produção"],
       ["data-quality-reviewer", "Valida checks, backfill e rollback antes do merge"],
     ],
     notes:
@@ -633,80 +633,80 @@ const SLIDES = [
   {
     layout: "cards",
     kicker: "REGRAS PRATICAS",
-    title: "Nao transforme agentes em bagunca automatizada",
+    title: "Não transforme agentes em bagunça automatizada",
     subtitle:
       "Produtividade com IA em dados exige recorte claro de responsabilidade e guardrails simples.",
     cards: [
       [
         "Um agente, um foco",
-        "Evite agentes enciclopedicos. O ganho vem de responsabilidade nitida e descricao especifica.",
+        "Evite agentes enciclopédicos. O ganho vem de responsabilidade nítida e descrição específica.",
       ],
       [
-        "Ferramentas minimas",
-        "De ao agente apenas o que ele precisa. Isso melhora seguranca, foco e previsibilidade.",
+        "Ferramentas mínimas",
+        "Dê ao agente apenas o que ele precisa. Isso melhora segurança, foco e previsibilidade.",
       ],
       [
         "Tudo volta para a spec",
-        "Mesmo com varios agentes, validacao, riscos, backfill e rollback continuam obrigatorios.",
+        "Mesmo com vários agentes, validação, riscos, backfill e rollback continuam obrigatórios.",
       ],
     ],
     notes:
-      "Esse slide responde a objecao natural: isso nao vai virar bagunca?",
+      "Esse slide responde à objeção natural: isso não vai virar bagunça?",
     sources: ["claude_subagents", "claude_memory", "lakeflow_best_practices"],
   },
   {
     layout: "cards",
     kicker: "ANTIPADROES",
-    title: "Os erros mais comuns quando um time comeca a usar IA",
+    title: "Os erros mais comuns quando um time começa a usar IA",
     subtitle:
-      "Quase todos os fracassos iniciais vem de falta de processo, nao de falta de modelo.",
+      "Quase todos os fracassos iniciais vêm de falta de processo, não de falta de modelo.",
     cards: [
       [
-        "Pedir codigo sem contexto",
+        "Pedir código sem contexto",
         "Sem spec, o time recebe uma resposta aparentemente boa, mas com risco alto escondido.",
       ],
       [
         "Delegar tudo para um agente",
-        "Generalismo demais polui contexto e reduz a qualidade tecnica da saida.",
+        "Generalismo demais polui contexto e reduz a qualidade técnica da saída.",
       ],
       [
-        "Nao medir",
-        "Sem baseline, qualquer sensacao de ganho ou perda vira opiniao em vez de evidencia.",
+        "Não medir",
+        "Sem baseline, qualquer sensação de ganho ou perda vira opinião em vez de evidência.",
       ],
     ],
     notes:
-      "Esse slide ajuda a antecipar resistencia e mostrar maturidade na proposta.",
+      "Esse slide ajuda a antecipar resistência e mostrar maturidade na proposta.",
     sources: ["claude_memory", "claude_subagents"],
   },
   {
     layout: "metrics",
     kicker: "COMO MEDIR",
-    title: "Produtividade precisa ser medida em fluxo, qualidade e operacao",
+    title: "Produtividade precisa ser medida em fluxo, qualidade e operação",
     subtitle:
       "Baseline via GitLab ou Jira antes do piloto. Medir as mesmas entregas com e sem IA por pelo menos 2 semanas.",
     metrics: [
-      ["Lead time", "Demanda ao merge — coletar via GitLab MR open/close date", "baseline: media das ultimas 10 entregas similares"],
-      ["Retrabalho", "MRs reabertos ou com mais de 2 rounds de review", "baseline: % de MRs com comentarios de correcao obrigatorios"],
-      ["Incidentes", "Falhas pos-deploy: rollback, alerta ou quebra downstream", "baseline: incidentes por sprint nas ultimas 4 sprints"],
+      ["Lead time", "Demanda ao merge — coletar via GitLab MR open/close date", "baseline: média das últimas 10 entregas similares"],
+      ["Retrabalho", "MRs reabertos ou com mais de 2 rounds de review", "baseline: % de MRs com comentários de correção obrigatórios"],
+      ["Incidentes", "Falhas pós-deploy: rollback, alerta ou quebra downstream", "baseline: incidentes por sprint nas últimas 4 sprints"],
     ],
     notes:
-      "A diferenca deste slide e mostrar COMO medir, nao apenas O QUE medir. Baseline via GitLab ou Jira e obrigatorio antes de rodar o piloto. Sem baseline, qualquer resultado vira opiniao.",
+      "A diferença deste slide é mostrar COMO medir, não apenas O QUE medir. Baseline via GitLab ou Jira é obrigatório antes de rodar o piloto. Sem baseline, qualquer resultado vira opinião.",
     sources: ["lakeflow_best_practices", "claude_memory"],
   },
   {
     layout: "cards",
     kicker: "LIMITACOES DO CLAUDE",
-    title: "IA erra. Saber onde evita surpresa em producao",
+    title: "IA erra. Saber onde evita surpresa em produção",
     subtitle:
-      "Reconhecer os limites nao enfraquece a proposta — mostra que a adocao esta sendo pensada com seriedade.",
+      "Reconhecer os limites não enfraquece a proposta — mostra que a adoção está sendo pensada com seriedade.",
     cards: [
       [
         "Schemas desconhecidos",
-        "Sem CLAUDE.md ou spec, Claude inventa campos, tipos e nomes plausiveis mas incorretos. Contexto e obrigatorio.",
+        "Sem CLAUDE.md ou spec, Claude inventa campos, tipos e nomes plausíveis mas incorretos. Contexto é obrigatório.",
       ],
       [
-        "Logica de negocio complexa",
-        "Regras de reconciliacao, late data e SLA dependem de decisao humana. Claude sugere; o engenheiro valida.",
+        "Lógica de negócio complexa",
+        "Regras de reconciliação, late data e SLA dependem de decisão humana. Claude sugere; o engenheiro valida.",
       ],
       [
         "Contexto muito longo",
@@ -714,66 +714,66 @@ const SLIDES = [
       ],
     ],
     notes:
-      "Esse slide aumenta a credibilidade da proposta com o time tecnico. Quem propoe IA sem mencionar limitacoes perde confianca. Mostrar que o processo SDD + review + checklist existe justamente para cobrir esses pontos cegos.",
+      "Esse slide aumenta a credibilidade da proposta com o time técnico. Quem propõe IA sem mencionar limitações perde confiança. Mostrar que o processo SDD + review + checklist existe justamente para cobrir esses pontos cegos.",
     sources: ["claude_memory", "claude_subagents", "lakeflow_best_practices"],
   },
   {
     layout: "flow",
     kicker: "ROLL OUT",
-    title: "Um rollout bom comeca pequeno e cresce por evidencias",
+    title: "Um rollout bom começa pequeno e cresce por evidências",
     subtitle:
-      "A pior forma de adotar IA e tentar mudar o time inteiro ao mesmo tempo e sem guardrails.",
+      "A pior forma de adotar IA é tentar mudar o time inteiro ao mesmo tempo e sem guardrails.",
     steps: [
       ["Escolher caso", "Selecionar uma entrega com dor real e escopo controlado"],
-      ["Fixar artefatos", "CLAUDE.md, spec, checklist e agentes minimos"],
-      ["Executar piloto", "Rodar uma janela curta com comparacao de fluxo anterior"],
-      ["Medir resultado", "Lead time, retrabalho, incidentes e satisfacao do time"],
-      ["Padronizar", "Expandir apenas o que realmente melhorou com seguranca"],
+      ["Fixar artefatos", "CLAUDE.md, spec, checklist e agentes mínimos"],
+      ["Executar piloto", "Rodar uma janela curta com comparação de fluxo anterior"],
+      ["Medir resultado", "Lead time, retrabalho, incidentes e satisfação do time"],
+      ["Padronizar", "Expandir apenas o que realmente melhorou com segurança"],
     ],
     notes:
-      "Mensagem executiva: adocao boa e incremental, mensurada e reversivel.",
+      "Mensagem executiva: adoção boa é incremental, mensurada e reversível.",
     sources: ["claude_memory", "claude_subagents", "lakeflow_best_practices"],
   },
   {
     layout: "metrics",
     kicker: "PILOTO PROPOSTO",
-    title: "Proxima etapa: um piloto pequeno, medido e reversivel",
+    title: "Próxima etapa: um piloto pequeno, medido e reversível",
     subtitle:
-      "A melhor forma de convencer o time e provar em um fluxo real, com criterios objetivos.",
+      "A melhor forma de convencer o time é provar em um fluxo real, com critérios objetivos.",
     metrics: [
       ["1", "Caso piloto", "preferir uma silver ou gold com dor real"],
       ["4", "Artefatos base", "CLAUDE.md, spec, checklist e agentes"],
       ["2 sem.", "Janela inicial", "medir lead time, retrabalho e incidentes"],
     ],
     notes:
-      "Fechar com algo pratico: um caso, poucos artefatos, janela curta e metricas de comparacao.",
+      "Fechar com algo prático: um caso, poucos artefatos, janela curta e métricas de comparação.",
     sources: ["bundles", "lakeflow_best_practices", "claude_subagents"],
   },
   {
     layout: "section",
     kicker: "FECHAMENTO",
     sectionNumber: "→",
-    title: "Qual caso real faz mais sentido para comecar?",
+    title: "Qual caso real faz mais sentido para começar?",
     subtitle:
-      "Nao estamos propondo IA sem controle. Estamos propondo um jeito melhor de transformar demanda em entrega.",
+      "Não estamos propondo IA sem controle. Estamos propondo um jeito melhor de transformar demanda em entrega.",
     topics: [
-      "Artefatos disponiveis em /artefatos",
+      "Artefatos disponíveis em /artefatos",
       "CLAUDE.md, spec-template, checklist-pr",
       "Agentes prontos em .claude/agents/",
     ],
     notes:
-      "Abrir a conversa com a pergunta central: qual caso real do nosso contexto faz mais sentido para provar ganho de produtividade sem elevar risco operacional? Nao fechar com slide — fechar com pergunta e silencio para o time responder.",
+      "Abrir a conversa com a pergunta central: qual caso real do nosso contexto faz mais sentido para provar ganho de produtividade sem elevar risco operacional? Não fechar com slide — fechar com pergunta e silêncio para o time responder.",
     sources: ["claude_memory", "claude_subagents", "bundles"],
   },
   {
     layout: "cover",
     kicker: "OBRIGADO",
-    title: "Perguntas e proximos passos",
+    title: "Perguntas e próximos passos",
     subtitle:
-      "Artefatos disponiveis em /artefatos: CLAUDE.md, spec-template, checklist-pr e agentes prontos para uso.",
-    moment: "Spec primeiro. Codigo depois.",
+      "Artefatos disponíveis em /artefatos: CLAUDE.md, spec-template, checklist-pr e agentes prontos para uso.",
+    moment: "Spec primeiro. Código depois.",
     notes:
-      "Slide de encerramento. Deixar no ar enquanto a conversa acontece. Reforcar que todos os artefatos apresentados estao disponiveis e prontos para uso no piloto.",
+      "Slide de encerramento. Deixar no ar enquanto a conversa acontece. Reforçar que todos os artefatos apresentados estão disponíveis e prontos para uso no piloto.",
     sources: ["claude_memory", "claude_subagents", "bundles", "lakeflow_best_practices"],
   },
 ];
@@ -1228,7 +1228,7 @@ function addReferenceCaption(slide, slideNo) {
   addText(
     slide,
     slideNo,
-    "SDD para dados: especificacao, implementacao, validacao e operacao no mesmo fluxo. Artefatos: /artefatos — CLAUDE.md, spec-template, checklist-pr, agentes.",
+    "SDD para dados: especificação, implementação, validação e operação no mesmo fluxo. Artefatos: /artefatos — CLAUDE.md, spec-template, checklist-pr, agentes.",
     64,
     674,
     980,
@@ -1307,7 +1307,7 @@ async function slideCover(presentation) {
     face: TITLE_FACE,
     role: "cover panel number",
   });
-  addText(slide, slideNo, "Codigo guiado", 1020, 284, 126, 32, {
+  addText(slide, slideNo, "Código guiado", 1020, 284, 126, 32, {
     size: 18,
     color: WHITE,
     bold: true,
@@ -1321,7 +1321,7 @@ async function slideCover(presentation) {
     face: TITLE_FACE,
     role: "cover panel number",
   });
-  addText(slide, slideNo, "Operacao prevista", 1020, 364, 138, 32, {
+  addText(slide, slideNo, "Operação prevista", 1020, 364, 138, 32, {
     size: 18,
     color: WHITE,
     bold: true,
@@ -1362,7 +1362,7 @@ async function slideSection(presentation, idx) {
     checkFit: false,
     role: "section number",
   });
-  addText(slide, idx, "NESTA SESSAO", 954, 284, 196, 20, {
+  addText(slide, idx, "NESTA SESSÃO", 954, 284, 196, 20, {
     size: 13,
     color: GOLD,
     bold: true,
