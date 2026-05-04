@@ -98,7 +98,7 @@ erDiagram
 - ~10 categorias (hierarquia em 2 níveis)
 - ~80 produtos
 - ~500 clientes (cresce ~1%/dia conforme novos cadastros)
-- ~200 pedidos/dia, ~2,5 itens/pedido em média
+- ~500 pedidos/dia, ~2,5 itens/pedido em média
 - ~1,1 pagamentos/pedido (parciais e estornos)
 - 3-5 eventos por pedido ao longo do tempo simulado
 
@@ -140,7 +140,7 @@ faker-lakehouse seed                                  # popula data/seed/
 faker-lakehouse run --start 2026-04-01 --days 7       # gera 7 dias de eventos
 faker-lakehouse run --start 2026-04-01 --days 7 \
     --seed 42 \
-    --orders-per-day 200 \
+    --orders-per-day 500 \
     --late-data-pct 5 --late-data-window-h 72 \
     --duplicate-pct 1 --corrupt-pct 2
 ```
@@ -278,7 +278,7 @@ Cada spec abaixo terá arquivo próprio em `artefatos/specs/`. Aqui consta apena
 
 | Risco | Mitigação |
 |---|---|
-| Volume de arquivos pequenos pode pesar em demos rápidas | CLI permite `--orders-per-day` reduzido; default modesto (200) |
+| Volume de arquivos pequenos pode pesar em demos rápidas | CLI permite `--orders-per-day` reduzido; default modesto (500) |
 | `Faker` em pt_BR pode gerar dados não determinísticos sem seed | Seed obrigatória; CLI exige `--seed` ou usa default fixo (42) |
 | 4 specs novas é trabalho considerável | Implementação será fatiada via plano gerado por `writing-plans` |
 | `data/landing/` pode crescer fora de controle no git | `.gitignore` agressivo; commitar apenas amostra de 1 dia |
