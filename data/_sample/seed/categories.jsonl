@@ -1,0 +1,10 @@
+{"category_id": "cat_0000", "name": "Tempore Culpa", "parent_category_id": null}
+{"category_id": "cat_0001", "name": "Alias Harum", "parent_category_id": null}
+{"category_id": "cat_0002", "name": "Exercitationem Et", "parent_category_id": null}
+{"category_id": "cat_0003", "name": "Deserunt", "parent_category_id": "cat_0000"}
+{"category_id": "cat_0004", "name": "Corporis", "parent_category_id": "cat_0001"}
+{"category_id": "cat_0005", "name": "Veritatis", "parent_category_id": "cat_0002"}
+{"category_id": "cat_0006", "name": "Quisquam", "parent_category_id": "cat_0000"}
+{"category_id": "cat_0007", "name": "Commodi", "parent_category_id": "cat_0001"}
+{"category_id": "cat_0008", "name": "Rerum", "parent_category_id": "cat_0002"}
+{"category_id": "cat_0009", "name": "Nisi", "parent_category_id": "cat_0000"}
