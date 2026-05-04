@@ -1,3 +1,10 @@
 node_modules/
 build/tmp/
 .worktrees/
+
+# generator
+generator/.venv/
+generator/.pytest_cache/
+generator/**/__pycache__/
+generator/*.egg-info/
+generator/.coverage
