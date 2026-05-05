@@ -99,10 +99,35 @@ Specs completas das quatro camadas do lakehouse para o domínio de pedidos — p
 | Spec | Camada | Descrição |
 | :--- | :--- | :--- |
 | [spec-template](./artefatos/specs/spec-template.md) | — | Template em branco para novas specs |
-| [spec-exemplo-raw-orders](./artefatos/specs/spec-exemplo-raw-orders.md) | Raw | Ingestão append-only sem transformação |
-| [spec-exemplo-bronze-orders](./artefatos/specs/spec-exemplo-bronze-orders.md) | Bronze | Tipagem, deduplicação e quarentena |
-| [spec-exemplo-silver-orders](./artefatos/specs/spec-exemplo-silver-orders.md) | Silver | Pedidos pagos com MERGE por order_id |
-| [spec-exemplo-gold-orders](./artefatos/specs/spec-exemplo-gold-orders.md) | Gold | Agregações por cliente e moeda |
+| [spec-exemplo-raw-commerce-events](./artefatos/specs/spec-exemplo-raw-commerce-events.md) | Raw | Ingestão append-only de eventos transacionais (orders/items/payments) |
+| [spec-exemplo-raw-dim-changes](./artefatos/specs/spec-exemplo-raw-dim-changes.md) | Raw | Ingestão de CDC de dimensões + snapshots seed |
+| [spec-exemplo-bronze-commerce-events](./artefatos/specs/spec-exemplo-bronze-commerce-events.md) | Bronze | Parsing tipado, dedup por event_id e quarentena |
+| [spec-exemplo-bronze-dimensions](./artefatos/specs/spec-exemplo-bronze-dimensions.md) | Bronze | SCD2 de customers/products/categories |
+| [spec-exemplo-silver-orders](./artefatos/specs/spec-exemplo-silver-orders.md) | Silver | Pedidos consolidados por order_id, enriched com dimensão |
+| [spec-exemplo-gold-orders](./artefatos/specs/spec-exemplo-gold-orders.md) | Gold | Agregações por cliente × moeda × data |
+
+---
+
+## Como gerar dados de exemplo
+
+O pacote `faker-lakehouse` em [generator/](./generator/) produz dados realistas das 6 entidades do modelo. Saída em JSONL particionado, pronta para Auto Loader.
+
+```bash
+cd generator
+python -m venv .venv
+.venv\Scripts\activate
+pip install -e ".[dev]"
+
+# popula dimensões em data/seed/
+faker-lakehouse seed --seed 42
+
+# gera 7 dias de eventos em data/landing/
+faker-lakehouse run --start 2026-04-01 --days 7 --seed 42
+```
+
+Falhas realistas (late data, duplicatas, payloads corrompidos) são injetadas por padrão para justificar regras de DQ e quarentena dos specs bronze. Ver [generator/README.md](./generator/README.md) para todas as opções.
+
+Pequena amostra versionada disponível em [data/_sample/](./data/_sample/) para demos rápidas sem rodar o gerador.
 
 ---
 
@@ -116,39 +141,36 @@ Specs completas das quatro camadas do lakehouse para o domínio de pedidos — p
 │   ├── narrative_plan.md
 │   ├── roteiro_apresentacao.md
 │   ├── spec-apresentacao-sdd-databricks.md
-│   └── storyboard-apresentacao-sdd-databricks.md
+│   ├── storyboard-apresentacao-sdd-databricks.md
+│   └── superpowers/                                 # Designs e planos de implementação
+│       ├── specs/
+│       └── plans/
 ├── artefatos/                                       # Prontos para uso no piloto
 │   ├── agentes/                                     # Agentes Claude especializados
-│   │   ├── databricks-platform.md
-│   │   ├── api-backend.md
-│   │   ├── spark-tuning.md
-│   │   └── data-quality-reviewer.md
 │   ├── specs/                                       # Templates e exemplos de spec
 │   │   ├── spec-template.md
-│   │   ├── spec-exemplo-raw-orders.md
-│   │   ├── spec-exemplo-bronze-orders.md
+│   │   ├── spec-exemplo-raw-commerce-events.md
+│   │   ├── spec-exemplo-raw-dim-changes.md
+│   │   ├── spec-exemplo-bronze-commerce-events.md
+│   │   ├── spec-exemplo-bronze-dimensions.md
 │   │   ├── spec-exemplo-silver-orders.md
 │   │   └── spec-exemplo-gold-orders.md
-│   ├── memory/                                      # Regras e memória do time
-│   │   ├── claude-memory-rules.md
-│   │   └── memory.example.md
-│   ├── exemplos/                                    # Exemplos de configuração
-│   │   ├── CLAUDE.example.md
-│   │   └── rules.example.md
-│   ├── guias/                                       # Guias operacionais
-│   │   ├── guia-criacao-uso-agentes.md
-│   │   ├── como-definir-skills-de-agentes.md
-│   │   └── prompt-template-operacional.md
-│   ├── checklist-pr.md                              # Checklist de PR com IA
-│   └── metricas-piloto.md                           # Métricas do piloto
+│   ├── memory/
+│   ├── exemplos/
+│   ├── guias/
+│   ├── checklist-pr.md
+│   └── metricas-piloto.md
+├── generator/                                       # Gerador faker-lakehouse
+│   ├── pyproject.toml
+│   ├── faker_lakehouse/
+│   └── tests/
+├── data/                                            # Saída do gerador
+│   ├── seed/                                        # Dimensões iniciais (gitignored exceto .gitkeep)
+│   ├── landing/                                     # Stream de eventos (gitignored exceto .gitkeep)
+│   └── _sample/                                     # Amostra versionada (1 dia, seed=42)
 ├── references/
-│   └── claude-references.md                         # Referências oficiais Anthropic
 ├── build/
-│   ├── deck_builder.mjs                             # Builder do PPTX — editar SLIDES[] aqui
-│   ├── package.json
-│   └── node_modules/
 └── out/
-    └── Apresentacao_SDD_Claude_Databricks.pptx      # Deck gerado
 ```
 
 ---
