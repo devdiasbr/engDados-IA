@@ -118,8 +118,11 @@ O pacote `faker-lakehouse` em [generator/](./generator/) produz dados realistas 
 cd generator
 python -m venv .venv
 .venv\Scripts\activate
-pip install -e ".[dev]"
+pip install -r requirements.txt
+pip install .
 ```
+
+> Para contribuidores que querem rodar os testes: `pip install -e ".[dev]"` em vez dos dois comandos acima.
 
 ### 2. Configurar o `lakehouse.yaml`
 
