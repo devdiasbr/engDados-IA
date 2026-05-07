@@ -1,0 +1,25 @@
+# Configurações do gerador faker-lakehouse
+# Edite aqui e rode a partir da raiz do projeto:
+#
+#   cd generator && faker-lakehouse seed && faker-lakehouse run
+#
+# Todos os valores podem ser sobrescritos por flags CLI.
+# Exemplo: faker-lakehouse run --orders-per-day 50
+
+generator:
+  seed: 42
+  num_categories: 10
+  num_products: 80
+  num_customers: 500
+
+run:
+  start: "2026-04-01"
+  days: 7
+  orders_per_day: 500
+  out_dir: "data"
+
+faults:
+  late_data_pct: 0.05      # 5% dos eventos chegam com atraso
+  late_data_window_h: 72   # atraso máximo de 72 horas
+  duplicate_pct: 0.01      # 1% de duplicatas exatas
+  corrupt_pct: 0.02        # 2% de payloads corrompidos
