@@ -3,6 +3,8 @@ from faker import Faker
 
 from faker_lakehouse.config import GeneratorConfig
 
+_SIGNUP_ANCHOR = date(2026, 1, 1)
+
 CURRENCIES = ["BRL", "USD", "EUR"]
 SEGMENTS = ["bronze", "silver", "gold", "platinum"]
 
@@ -51,10 +53,9 @@ def generate_customers(cfg: GeneratorConfig) -> list[dict]:
     fake = Faker("pt_BR")
     Faker.seed(cfg.seed + 2)
 
-    today = date.today()
     customers: list[dict] = []
     for i in range(cfg.num_customers):
-        signup = today - timedelta(days=fake.pyint(min_value=0, max_value=730))
+        signup = _SIGNUP_ANCHOR - timedelta(days=fake.pyint(min_value=0, max_value=730))
         customers.append({
             "customer_id": f"cust_{i:06d}",
             "email": fake.unique.email(),

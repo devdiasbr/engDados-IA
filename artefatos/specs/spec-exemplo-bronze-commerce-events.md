@@ -42,6 +42,7 @@ Bronze
 - `event_type`: string, not null
 - `_entity`: string, not null
 - `order_id`: string
+- `order_item_id`: string
 - `customer_id`: string
 - `product_id`: string
 - `payment_id`: string
@@ -49,6 +50,7 @@ Bronze
 - `total_amount`: decimal(18,2)
 - `quantity`: int
 - `unit_price`: decimal(18,2)
+- `line_total`: decimal(18,2)
 - `amount`: decimal(18,2)
 - `method`: string
 - `status`: string

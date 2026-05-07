@@ -23,8 +23,9 @@ Silver
 ## Transformation rules
 - Para cada `order_id`, computar último estado válido a partir da sequência de eventos:
   - status final em ordem de prioridade: `delivered` > `shipped` > `paid` > `cancelled` > `refunded` > `created`
-  - `paid_at`: `received_at` do primeiro evento `order.paid` por `order_id`
-  - `created_at`: `received_at` do evento `order.created`
+  - `paid_at`: `occurred_at` do primeiro evento `order.paid` por `order_id`
+  - `created_at`: `occurred_at` do evento `order.created`
+  - `last_event_at`: `max(occurred_at)` sobre todos os eventos do `order_id`
 - Agregar itens da bronze: `total_items_qty`, `total_items_amount` por `order_id`
 - Enriquecer com `customer_country`, `customer_segment`, `customer_email_hash` (SHA-256 do email — não expor email cru) via join com `bronze.dim_customers` onde `_is_current = true`
 - Filtrar pedidos com `status` final ∈ {`paid`, `shipped`, `delivered`, `refunded`} (excluir `created` puro e `cancelled`)
