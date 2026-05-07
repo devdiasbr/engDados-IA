@@ -1,0 +1,31 @@
+[project]
+name = "faker-lakehouse"
+version = "0.1.0"
+description = "Gerador de dados de e-commerce para SDD com Claude no Databricks"
+requires-python = ">=3.12"
+dependencies = [
+    "faker>=30.0.0",
+    "click>=8.1.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+]
+
+[project.scripts]
+faker-lakehouse = "faker_lakehouse.cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["faker_lakehouse*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"

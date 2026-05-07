@@ -1,7 +1,7 @@
 # Configurações do gerador faker-lakehouse
 # Edite aqui e rode a partir da raiz do projeto:
 #
-#   cd generator && faker-lakehouse seed && faker-lakehouse run
+#   cd pipeline\raw\generator && faker-lakehouse seed && faker-lakehouse run
 #
 # Todos os valores podem ser sobrescritos por flags CLI.
 # Exemplo: faker-lakehouse run --orders-per-day 50
