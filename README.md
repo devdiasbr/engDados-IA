@@ -112,20 +112,42 @@ Specs completas das quatro camadas do lakehouse para o domínio de pedidos — p
 
 O pacote `faker-lakehouse` em [generator/](./generator/) produz dados realistas das 6 entidades do modelo. Saída em JSONL particionado, pronta para Auto Loader.
 
-```bash
+### 1. Instalação (uma única vez)
+
+```cmd
 cd generator
 python -m venv .venv
 .venv\Scripts\activate
 pip install -e ".[dev]"
-
-# popula dimensões em data/seed/
-faker-lakehouse seed --seed 42
-
-# gera 7 dias de eventos em data/landing/
-faker-lakehouse run --start 2026-04-01 --days 7 --seed 42
 ```
 
-Falhas realistas (late data, duplicatas, payloads corrompidos) são injetadas por padrão para justificar regras de DQ e quarentena dos specs bronze. Ver [generator/README.md](./generator/README.md) para todas as opções.
+### 2. Configurar o `lakehouse.yaml`
+
+Edite [lakehouse.yaml](./lakehouse.yaml) na raiz do projeto para ajustar volume, datas e taxas de falha:
+
+```yaml
+run:
+  start: "2026-04-01"
+  days: 7
+  orders_per_day: 500
+```
+
+### 3. Gerar os dados
+
+Com o venv ativo, a partir de `generator/`:
+
+```cmd
+faker-lakehouse seed     # popula data/seed/ com dimensões
+faker-lakehouse run      # gera eventos conforme lakehouse.yaml
+```
+
+Override pontual via CLI (sobrescreve o YAML):
+
+```cmd
+faker-lakehouse run --orders-per-day 50 --days 1
+```
+
+Falhas realistas (late data, duplicatas, payloads corrompidos) são injetadas por padrão para justificar as regras de DQ e quarentena dos specs bronze. Ver [generator/README.md](./generator/README.md) para todas as opções.
 
 Pequena amostra versionada disponível em [data/_sample/](./data/_sample/) para demos rápidas sem rodar o gerador.
 
