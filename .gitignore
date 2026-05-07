@@ -3,8 +3,8 @@ build/tmp/
 .worktrees/
 
 # generator
-pipeline/raw/generator/.venv/
-pipeline/raw/generator/.pytest_cache/
-pipeline/raw/generator/**/__pycache__/
-pipeline/raw/generator/*.egg-info/
-pipeline/raw/generator/.coverage
+generator/.venv/
+generator/.pytest_cache/
+generator/**/__pycache__/
+generator/*.egg-info/
+generator/.coverage
