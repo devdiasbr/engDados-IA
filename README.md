@@ -156,6 +156,43 @@ Pequena amostra versionada disponível em [data/_sample/](./data/_sample/) para 
 
 ---
 
+## Deploy no Databricks (Free Edition)
+
+### Pré-requisitos
+
+1. Instalar o [Databricks CLI](https://docs.databricks.com/en/dev-tools/cli/install.html):
+   ```cmd
+   pip install databricks-cli
+   ```
+2. Autenticar no workspace:
+   ```cmd
+   databricks configure --token
+   ```
+3. Preencher `workspace.host` em `databricks.yml` com a URL do seu workspace Free Edition.
+
+### Subir o bundle
+
+```cmd
+databricks bundle validate    # verifica a configuração
+databricks bundle deploy      # deploia pipelines e job no workspace
+```
+
+### Executar o pipeline completo
+
+```cmd
+databricks bundle run medallion-job
+```
+
+Isso executa em sequência: **generator → raw → bronze → silver → gold**.
+
+### Verificar resultados
+
+No Databricks workspace:
+- **Workflows** → `[dev] medallion-lakehouse-job` — acompanhar execução
+- **Catalog Explorer** → `main.raw`, `main.bronze`, `main.silver`, `main.gold` — ver tabelas geradas
+
+---
+
 ## Estrutura do Projeto
 
 ```text
