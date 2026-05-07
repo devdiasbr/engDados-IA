@@ -80,3 +80,71 @@ run:
     assert result["days"] == 5
     assert "seed" not in result
     assert "orders_per_day" not in result
+
+
+from faker_lakehouse.cli import main
+
+
+def test_seed_uses_yaml_out_dir(tmp_path: Path):
+    runner = CliRunner()
+    with runner.isolated_filesystem(temp_dir=tmp_path):
+        Path("lakehouse.yaml").write_text("""
+generator:
+  seed: 42
+run:
+  out_dir: my_output
+""")
+        result = runner.invoke(main, ["seed"])
+        assert result.exit_code == 0, result.output
+        assert Path("my_output/seed/categories.jsonl").exists()
+
+
+def test_run_uses_yaml_start_and_days(tmp_path: Path):
+    runner = CliRunner()
+    with runner.isolated_filesystem(temp_dir=tmp_path):
+        Path("lakehouse.yaml").write_text("""
+generator:
+  seed: 42
+run:
+  start: "2026-04-01"
+  days: 1
+  orders_per_day: 10
+  out_dir: my_data
+faults:
+  late_data_pct: 0
+  duplicate_pct: 0
+  corrupt_pct: 0
+""")
+        result = runner.invoke(main, ["run"])
+        assert result.exit_code == 0, result.output
+        assert (Path("my_data") / "landing" / "orders" / "_partition_date=2026-04-01").exists()
+
+
+def test_cli_flag_overrides_yaml(tmp_path: Path):
+    runner = CliRunner()
+    with runner.isolated_filesystem(temp_dir=tmp_path):
+        Path("lakehouse.yaml").write_text("""
+generator:
+  seed: 42
+run:
+  start: "2026-04-01"
+  days: 1
+  orders_per_day: 100
+  out_dir: yaml_output
+faults:
+  late_data_pct: 0
+  duplicate_pct: 0
+  corrupt_pct: 0
+""")
+        result = runner.invoke(main, ["run", "--orders-per-day", "5", "--out-dir", "cli_output"])
+        assert result.exit_code == 0, result.output
+        assert (Path("cli_output") / "landing" / "orders" / "_partition_date=2026-04-01").exists()
+        assert not Path("yaml_output").exists()
+
+
+def test_run_errors_without_start_and_no_yaml(tmp_path: Path):
+    runner = CliRunner()
+    with runner.isolated_filesystem(temp_dir=tmp_path):
+        result = runner.invoke(main, ["run"])
+        assert result.exit_code != 0
+        assert "start" in result.output.lower() or "obrigat" in result.output.lower()
