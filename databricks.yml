@@ -1,0 +1,133 @@
+# databricks.yml
+# Databricks Asset Bundle — Pipeline Medallion Lakehouse
+#
+# Uso:
+#   databricks bundle validate          # valida sem deploiar
+#   databricks bundle deploy            # deploia no workspace
+#   databricks bundle run medallion-job # executa o job completo
+#
+# Preencha workspace.host com a URL do seu Databricks Free Edition.
+# Ex: https://adb-1234567890123456.7.azuredatabricks.net
+
+bundle:
+  name: medallion-lakehouse
+
+variables:
+  catalog:
+    description: "Unity Catalog catalog"
+    default: main
+  raw_schema:
+    description: "Schema da camada raw"
+    default: raw
+  bronze_schema:
+    description: "Schema da camada bronze"
+    default: bronze
+  silver_schema:
+    description: "Schema da camada silver"
+    default: silver
+  gold_schema:
+    description: "Schema da camada gold"
+    default: gold
+  landing_path:
+    description: "Caminho dos arquivos JSONL gerados (Volume ou DBFS)"
+    default: /Volumes/main/raw/landing
+  schema_location:
+    description: "Onde o Auto Loader persiste o schema inferido"
+    default: /Volumes/main/raw/schema_location
+
+targets:
+  dev:
+    mode: development
+    default: true
+
+workspace:
+  host: https://PREENCHA-SUA-URL.azuredatabricks.net  # <- altere aqui
+
+resources:
+  pipelines:
+    raw:
+      name: "[${bundle.target}] raw-commerce-events"
+      catalog: ${var.catalog}
+      schema: ${var.raw_schema}
+      development: true
+      configuration:
+        pipeline.landing_path: ${var.landing_path}
+        pipeline.schema_location: ${var.schema_location}
+      libraries:
+        - file:
+            path: ./pipeline/raw/pipeline.py
+
+    bronze:
+      name: "[${bundle.target}] bronze-commerce-events"
+      catalog: ${var.catalog}
+      schema: ${var.bronze_schema}
+      development: true
+      configuration:
+        pipeline.catalog: ${var.catalog}
+        pipeline.raw_schema: ${var.raw_schema}
+      libraries:
+        - file:
+            path: ./pipeline/bronze/pipeline.py
+
+    silver:
+      name: "[${bundle.target}] silver-orders"
+      catalog: ${var.catalog}
+      schema: ${var.silver_schema}
+      development: true
+      configuration:
+        pipeline.catalog: ${var.catalog}
+        pipeline.bronze_schema: ${var.bronze_schema}
+      libraries:
+        - file:
+            path: ./pipeline/silver/pipeline.py
+
+    gold:
+      name: "[${bundle.target}] gold-orders-summary"
+      catalog: ${var.catalog}
+      schema: ${var.gold_schema}
+      development: true
+      configuration:
+        pipeline.catalog: ${var.catalog}
+        pipeline.silver_schema: ${var.silver_schema}
+      libraries:
+        - file:
+            path: ./pipeline/gold/pipeline.py
+
+  jobs:
+    medallion-job:
+      name: "[${bundle.target}] medallion-lakehouse-job"
+      tasks:
+        - task_key: generate
+          description: "Executa o gerador faker-lakehouse para popular data/landing/"
+          python_wheel_task:
+            package_name: faker-lakehouse
+            entry_point: main
+            parameters: ["run"]
+
+        - task_key: raw
+          description: "Auto Loader: data/landing/ → raw.commerce_events"
+          depends_on:
+            - task_key: generate
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.raw.id}
+
+        - task_key: bronze
+          description: "Parse + dedup + quarantine: raw → bronze.commerce_events"
+          depends_on:
+            - task_key: raw
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.bronze.id}
+
+        - task_key: silver
+          description: "Consolidação por order_id: bronze → silver.orders"
+          depends_on:
+            - task_key: bronze
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.silver.id}
+
+        - task_key: gold
+          description: "Agregações: silver → gold.orders_summary"
+          depends_on:
+            - task_key: silver
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.gold.id}
