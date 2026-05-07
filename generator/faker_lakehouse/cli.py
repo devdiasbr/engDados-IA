@@ -17,6 +17,15 @@ _YAML_RUN_KEYS = ("orders_per_day", "out_dir", "start", "days")
 _YAML_FAULTS_KEYS = ("late_data_pct", "late_data_window_h", "duplicate_pct", "corrupt_pct")
 
 
+def _find_yaml() -> Path:
+    """Procura lakehouse.yaml no CWD e no diretório pai (projeto raiz)."""
+    for directory in (Path.cwd(), Path.cwd().parent):
+        candidate = directory / "lakehouse.yaml"
+        if candidate.exists():
+            return candidate
+    return Path.cwd() / "lakehouse.yaml"
+
+
 def _load_yaml_config(yaml_path: Path) -> dict:
     """Lê lakehouse.yaml e retorna dict plano com chaves do GeneratorConfig.
 
@@ -89,7 +98,7 @@ def main():
 @click.option("--out-dir", type=click.Path(), default=None)
 def seed(seed, out_dir):
     """Gera dimensoes iniciais em <out-dir>/seed/."""
-    yaml_cfg = _load_yaml_config(Path.cwd() / "lakehouse.yaml")
+    yaml_cfg = _load_yaml_config(_find_yaml())
     cfg = _build_config(yaml_cfg, seed, None, None, None, None, None, out_dir)
     cats = generate_categories(cfg)
     prods = generate_products(cfg, cats)
@@ -113,7 +122,7 @@ def seed(seed, out_dir):
 def run(start, days, seed, orders_per_day, late_data_pct, late_data_window_h,
         duplicate_pct, corrupt_pct, out_dir):
     """Gera <days> dias de eventos a partir de <start>."""
-    yaml_cfg = _load_yaml_config(Path.cwd() / "lakehouse.yaml")
+    yaml_cfg = _load_yaml_config(_find_yaml())
 
     if start is not None:
         start_date = start.date() if hasattr(start, "date") else start
