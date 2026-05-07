@@ -96,13 +96,28 @@ resources:
   jobs:
     medallion-job:
       name: "[${bundle.target}] medallion-lakehouse-job"
+      job_clusters:
+        - job_cluster_key: default_cluster
+          new_cluster:
+            spark_version: 15.4.x-scala2.12
+            node_type_id: Standard_DS3_v2  # ajuste para o node disponível no seu workspace
+            num_workers: 1
+            spark_env_vars:
+              PYSPARK_PYTHON: /databricks/python3/bin/python3
       tasks:
         - task_key: generate
           description: "Executa o gerador faker-lakehouse para popular data/landing/"
+          # Pré-requisito: build e upload do wheel antes do primeiro deploy.
+          #   cd generator && pip wheel . --no-deps -w ../dist/
+          #   Faça upload de dist/faker_lakehouse-*.whl para um Volume no Databricks
+          #   e atualize o caminho abaixo.
           python_wheel_task:
             package_name: faker-lakehouse
-            entry_point: main
+            entry_point: faker-lakehouse
             parameters: ["run"]
+          libraries:
+            - whl: /Volumes/main/raw/wheels/faker_lakehouse-0.1.0-py3-none-any.whl
+          job_cluster_key: default_cluster
 
         - task_key: raw
           description: "Auto Loader: data/landing/ → raw.commerce_events"
