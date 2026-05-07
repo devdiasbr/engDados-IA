@@ -42,13 +42,23 @@ faults:
     assert result["corrupt_pct"] == 0.05
 
 
-def test_load_returns_empty_and_warns_on_malformed_yaml(tmp_path: Path, capsys):
+def test_load_returns_empty_and_warns_on_malformed_yaml(tmp_path: Path):
     yaml_file = tmp_path / "lakehouse.yaml"
     yaml_file.write_text("generator: [\nnot valid yaml", encoding="utf-8")
 
     result = _load_yaml_config(yaml_file)
 
     assert result == {}
+
+
+def test_malformed_yaml_shows_warning_and_uses_defaults(tmp_path: Path):
+    from faker_lakehouse.cli import main
+    runner = CliRunner()
+    with runner.isolated_filesystem(temp_dir=tmp_path):
+        Path("lakehouse.yaml").write_text("generator: [\nnot valid yaml")
+        result = runner.invoke(main, ["seed", "--out-dir", "out"])
+    assert result.exit_code == 0
+    assert "Warning" in result.output or "inválido" in result.output
 
 
 def test_load_ignores_unknown_keys(tmp_path: Path):
