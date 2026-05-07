@@ -110,12 +110,12 @@ Specs completas das quatro camadas do lakehouse para o domínio de pedidos — p
 
 ## Como gerar dados de exemplo
 
-O pacote `faker-lakehouse` em [pipeline/raw/generator/](./pipeline/raw/generator/) produz dados realistas das 6 entidades do modelo. Saída em JSONL particionado, pronta para Auto Loader.
+O pacote `faker-lakehouse` em [generator/](./generator/) produz dados realistas das 6 entidades do modelo. Saída em JSONL particionado, pronta para Auto Loader.
 
 ### 1. Instalação (uma única vez)
 
 ```cmd
-cd pipeline\raw\generator
+cd generator
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
@@ -137,7 +137,7 @@ run:
 
 ### 3. Gerar os dados
 
-Com o venv ativo, a partir de `pipeline\raw\generator\`:
+Com o venv ativo, a partir de `generator\`:
 
 ```cmd
 faker-lakehouse seed     # popula data/seed/ com dimensões
@@ -150,7 +150,7 @@ Override pontual via CLI (sobrescreve o YAML):
 faker-lakehouse run --orders-per-day 50 --days 1
 ```
 
-Falhas realistas (late data, duplicatas, payloads corrompidos) são injetadas por padrão para justificar as regras de DQ e quarentena dos specs bronze. Ver [pipeline/raw/generator/README.md](./pipeline/raw/generator/README.md) para todas as opções.
+Falhas realistas (late data, duplicatas, payloads corrompidos) são injetadas por padrão para justificar as regras de DQ e quarentena dos specs bronze. Ver [generator/README.md](./generator/README.md) para todas as opções.
 
 Pequena amostra versionada disponível em [data/_sample/](./data/_sample/) para demos rápidas sem rodar o gerador.
 
